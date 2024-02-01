@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class ParityCheck {
-    public void detectUserName() {
+    public String detectUserName() {
         Scanner in = new Scanner(System.in);
         System.out.println(
                 "Welcome to the Brain Games!\n" +
@@ -12,6 +12,7 @@ public class ParityCheck {
         String playerName = in.nextLine();
         System.out.println(playerName + "\n");
         System.out.println("Hello, " + playerName + "!");
+        return playerName;
     }
     public static boolean isParity(int curNum) {
         return curNum % 2 == 0;
