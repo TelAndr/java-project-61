@@ -14,19 +14,44 @@ public class Engine {
         System.out.println("Hello, " + playerName + "!");
         return playerName;
     }
-    public void countNumCorrectAns(Scanner inpVal, int counterInputUser, String playerName) {
+    public void dispValidRespMes() {
+        System.out.println("Correct!");
+    }
+    public void dispInvalidRespMes(String incorrVal, String corrVal, String userName) {
+        System.out.println("'" + incorrVal + "' is wrong answer ;(. Correct answer was '" +
+                corrVal + "'.");
+        System.out.println("Let's try again," + userName + "!");
+    }
+    public void countNumCorrectAns(Scanner inpVal, int counterInputUser, String playerName, int numGame) {
+        int numInpIter = 3;
         while (inpVal.hasNextLine()) {
-            if (counterInputUser == 3) {
+            if (counterInputUser == numInpIter) {
                 System.out.println("Congratulations, " + playerName + "!");
                 return;
             }
-            //
+            switch(numGame) {
+                case 2:
+                    determParityInpGuessNum(inpVal, counterInputUser, playerName);
+                    break;
+                case 3:
+                    calcTwoNumValue(playerName);
+                    break;
+                case 4:
+                    calc_gcd();
+                    break;
+                case 5:
+                    GuessNumArithmProgres(counterInputUser, playerName);
+                    break;
+                case 6:
+                    calcSimpleNumber();
+                    break;
+            }
         }
     }
     public static boolean isParity(int curNum) {
         return curNum % 2 == 0;
     }
-    public void determParityInpGuessNum(Scanner inpVal, int counterInputUser) {
+    public void determParityInpGuessNum(Scanner inpVal, int counterInputUser, String userName) {
         System.out.println(
                 "Answer 'yes' if the number is even, otherwise answer 'no'.\n" +
                         "Question:"
@@ -40,27 +65,29 @@ public class Engine {
         System.out.println(strPlayerResponse);
         if ((isParity(randomValue) && strPlayerResponse.equalsIgnoreCase("Yes")) ||
                 (!isParity(randomValue) && strPlayerResponse.equalsIgnoreCase("No")) ) {
-            System.out.println("Correct!");
+            dispValidRespMes();
+            //System.out.println("Correct!");
             ++counterInputUser;
         }
         if ((isParity(randomValue) && strPlayerResponse.equalsIgnoreCase("No")) ||
                 (!isParity(randomValue) && strPlayerResponse.equalsIgnoreCase("Yes")) ) {
-            System.out.println(
-                    "'yes' is wrong answer ;(. Correct answer was 'no'.\n" +
-                            "Let's try again, Bill!"
-            );
+            dispInvalidRespMes("yes", "no", userName);
+            //System.out.println(
+            //        "'yes' is wrong answer ;(. Correct answer was 'no'.\n" +
+            //                "Let's try again, " + userName + "!"
+            //);
             return;
         }
     }
-    public void calcTwoNumValue() {
-        int counterInputUserSec = 0;
-        System.out.println("What is the result of the expression?");
-        Scanner in = new Scanner(System.in);
-        while (in.hasNextLine()) {
-            if (counterInputUserSec == 3) {
-                System.out.println("Congratulations, " + "secondPlayerName" + "!");
-                break;
-            }
+    public void calcTwoNumValue(String userName) {
+        //int counterInputUserSec = 0;
+        //System.out.println("What is the result of the expression?");
+        //Scanner in = new Scanner(System.in);
+        //while (in.hasNextLine()) {
+        //    if (counterInputUserSec == 3) {
+        //        System.out.println("Congratulations, " + "secondPlayerName" + "!");
+        //        break;
+        //    }
             int minValue = 1;
             int maxValue = 100;
             int randomValueFirst = minValue + (int) (Math.random() * (maxValue - minValue + 1));
@@ -85,14 +112,16 @@ public class Engine {
             int ansUserOper = input.nextInt();
             System.out.println("Your answer: " + ansUserOper);
             if(resultMathOperation == ansUserOper) {
-                System.out.println("Correct!");
+                dispValidRespMes();
+                //System.out.println("Correct!");
             } else {
-                System.out.println("'" + ansUserOper + "' is wrong answer ;(. Correct answer was '" +
-                        resultMathOperation + "'.");
-                System.out.println("Let's try again," + "userName" + "!");
-                break;
+                dispInvalidRespMes(String.valueOf(ansUserOper), String.valueOf(resultMathOperation), userName);
+                //System.out.println("'" + ansUserOper + "' is wrong answer ;(. Correct answer was '" +
+                //        resultMathOperation + "'.");
+                //System.out.println("Let's try again," + userName + "!");
+                return; //break;
             }
-        }
+        //}
     }
     public int gcd(int firstNum, int secondNum) {
         while (secondNum != 0) {
@@ -101,7 +130,24 @@ public class Engine {
         }
     return firstNum;
     }
-    public void GuessNumArithmProgres(int counterInputUser) {
+
+    public void calc_gcd() {
+        int firstNum, secondNum; // 100, 50
+        System.out.println("Input first positive integer number");
+        Scanner inputUserOneNumber = new Scanner(System.in);
+        int ansUserOneValue = inputUserOneNumber.nextInt();
+        firstNum = ansUserOneValue;
+        System.out.println("You input next one number:" + ansUserOneValue);
+
+        System.out.println("Input second positive integer number");
+        Scanner inputUserTwoNumber = new Scanner(System.in);
+        int ansUserTwoValue = inputUserTwoNumber.nextInt();
+        secondNum = ansUserTwoValue;
+        System.out.println("You input next two number:" + ansUserTwoValue);
+        int resultOperGCD = gcd(firstNum, secondNum);
+        System.out.println("The greatest common divisor is" + resultOperGCD);
+    }
+    public void GuessNumArithmProgres(int counterInputUser, String userName) {
         int minValue = 1;
         int maxValue = 100;
         int randomValueFirst = minValue + (int) (Math.random() * (maxValue - minValue + 1));
@@ -130,12 +176,14 @@ public class Engine {
         int ansUserValue = inputUser.nextInt();
         System.out.println("Your answer: " + ansUserValue);
         if (arrArifmProgr[randIndValRepl] == ansUserValue) {
-            System.out.println("Correct!");
+            dispValidRespMes();
+            //System.out.println("Correct!");
             ++counterInputUser;
         } else {
-            System.out.println("'" + ansUserValue + "' is wrong answer ;(. Correct answer was '"
-                    + arrArifmProgr[randIndValRepl] + "'.");
-            System.out.println("Let's try again, " + "secondPlayerName" + "!");
+            dispInvalidRespMes(String.valueOf(ansUserValue), String.valueOf(arrArifmProgr[randIndValRepl]), userName);
+            //System.out.println("'" + ansUserValue + "' is wrong answer ;(. Correct answer was '"
+            //        + arrArifmProgr[randIndValRepl] + "'.");
+            //System.out.println("Let's try again, " + "secondPlayerName" + "!");
             return;
         }
     }
@@ -148,11 +196,27 @@ public class Engine {
             }
         }
         // condition for nonprime number
-        if (flag == 0) {
-            return true;
+        return (flag == 0);
+        //if (flag == 0) {
+        //    return true;
+        //}
+        //else {
+        //    return false;
+       //}
+    }
+    public void calcSimpleNumber() {
+        int testNum; boolean numIsSimple; // 36
+        System.out.println("Input positive integer number");
+        Scanner inputUserNumber = new Scanner(System.in);
+        int ansUserOneValue = inputUserNumber.nextInt();
+        testNum = ansUserOneValue;
+        System.out.println("You input next number:" + ansUserOneValue);
+        numIsSimple = valIsSimple(testNum);
+        if(numIsSimple) {
+            System.out.println("The input number is simple");
+        } else {
+            System.out.println("The input number is not simple");
         }
-        else {
-            return false;
-       }
     }
 }
+

@@ -4,21 +4,39 @@ import java.util.Scanner;
 //import hexlet.code.Cli;
 
 public class App {
-    public static boolean isParity(int curNum) {
-        return curNum % 2 == 0;
-    }
-    public static void main(String[] args) {
+
+    public static void main(String[] args) { //
         hexlet.code.Cli.askUser();
         String curUserName = new String();
+        Scanner in = new Scanner(System.in);
         System.out.println(
                 "Please enter the game number and press Enter.\n" +
                 "1 - Greet\n" + "2 - Even\n" + "3 - Calc\n" + "4 - GCD\n" +
                 "5 - Progression\n" + "0 - Exit");
-        Scanner in = new Scanner(System.in);
+        String strGame = in.nextLine();
+        System.out.println("You choice:" + strGame);
         int numGame = in.nextInt();
         System.out.println("Your choice:" + numGame);
+        in.close();
         ParityCheck parCheck = new ParityCheck();
         Engine eng = new Engine();
+        switch(numGame) {
+            case 0:
+                break;
+            case 1:
+                curUserName = eng.detectUserName();
+                break;
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+                int counterInputUser = 0;
+                eng.countNumCorrectAns(in, counterInputUser, curUserName, numGame);
+                break;
+            default:
+                System.out.println("Error input!");
+        }
         switch(numGame) {
             case 0:
 
@@ -51,7 +69,7 @@ public class App {
                             "Answer 'yes' if the number is even, otherwise answer 'no'.\n" +
                                     "Question:"
                     );
-                    eng.determParityInpGuessNum(in, counterInputUser);
+                    eng.determParityInpGuessNum(in, counterInputUser, curUserName);
                     int minValue = 1;
                     int maxValue = 100;
                     int randomValue = minValue + (int) (Math.random() * (maxValue - minValue + 1));
@@ -128,7 +146,7 @@ public class App {
                         System.out.println("Congratulations, " + "secondPlayerName" + "!");
                         break;
                     }
-                    eng.GuessNumArithmProgres(counterInputUserThree);
+                    eng.GuessNumArithmProgres(counterInputUserThree, curUserName);
                     int minValue = 1;
                     int maxValue = 100;
                     int randomValueFirst = minValue + (int) (Math.random() * (maxValue - minValue + 1));
@@ -174,6 +192,9 @@ public class App {
             default:
                 System.out.println("Error input!");
         }
+    }
+    public static boolean isParity(int curNum) {
+        return curNum % 2 == 0;
     }
     //hexlet.code.Cli ; //Cli.askUser("");
 }
