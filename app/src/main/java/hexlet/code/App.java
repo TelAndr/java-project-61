@@ -38,7 +38,7 @@ public class App {
                 System.out.println("Error input!");
         }
 
-//        switch(numGame) {
+//        switch(numGame) { ////////
 //            case 0:
 //
 //                break;
