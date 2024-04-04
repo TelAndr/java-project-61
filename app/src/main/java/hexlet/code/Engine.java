@@ -37,31 +37,36 @@ public class Engine {
             }
             switch(numGame) {
                 case 2:
-                    if (determParityInpGuessNum()) {
+                    //if (determParityInpGuessNum()) {
+                    if(ParityInputGuessNum.determParityInpGuessNum()){
                         counterInputUser++;
                     } else {
                         return;
                     }
                     break;
                 case 3:
-                     if(calcTwoNumValue()) {
+                     //if(calcTwoNumValue()) {
+                    if(CalculationTwoNumValue.calcTwoNumValue()) {
                          counterInputUser++;
                      } else {
                          return;
                      }
                     break;
                 case 4:
-                    calc_gcd();
+                    //calc_gcd();
+                    CalculationGCD.calc_gcd();
                     break;
                 case 5:
-                    if(GuessNumArithmProgres()) {
+                    //if(GuessNumArithmProgres()) {
+                    if(GuessNumArithmProgr.GuessNumArithmProgres()) {
                         counterInputUser++;
                     } else {
                         return;
                     }
                     break;
                 case 6:
-                    calcSimpleNumber();
+                    //calcSimpleNumber();
+                    CalculateSimpleNumber.calcSimpleNumber();
                     break;
             }
         }

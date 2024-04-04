@@ -12,32 +12,61 @@ public class App {
         Scanner in = new Scanner(System.in);
         System.out.println(
                 "Please enter the game number and press Enter.\n" +
-                "1 - Greet\n" + "2 - Even\n" + "3 - Calc\n" + "4 - GCD\n" +
-                "5 - Progression\n" + "0 - Exit");
+                        "1 - Greet\n" + "2 - Even\n" + "3 - Calc\n" + "4 - GCD\n" +
+                        "5 - Progression\n" + "6 - Prime\n" + "0 - Exit");
         String strNumGame = USER_INPUT.nextLine();
         //System.out.println("You choice:" + strGame);
         int numGame = Integer.parseInt(strNumGame); //in.nextInt();
         System.out.println("Your choice:" + numGame + "\n");
         //ParityCheck parCheck = new ParityCheck();
         Engine eng = new Engine();
-        switch(numGame) {
-            case 0:
-                break;
-            case 1:
-                curUserName = eng.detectUserName();
-                break;
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-                int counterInputUser = 0;
-                eng.countNumCorrectAns(counterInputUser, curUserName, numGame);
-                break;
-            default:
-                System.out.println("Error input!");
+        int numInpIter = 3;
+        int counterInputUser = 0;
+        while (true) {
+            if (counterInputUser == numInpIter) {
+                System.out.println("Congratulations, " + App.username + "!"); // playerName
+                return;
+            }
+            switch (numGame) {
+                case 0:
+                    break;
+                case 1:
+                    //curUserName = eng.detectUserName();
+                    curUserName = UserName.detectUserName();
+                    break;
+                case 2:
+                    if(ParityInputGuessNum.determParityInpGuessNum()){
+                        counterInputUser++;
+                    } else {
+                        return;
+                    }
+                    break;
+                case 3:
+                    if(CalculationTwoNumValue.calcTwoNumValue()) {
+                        counterInputUser++;
+                    } else {
+                        return;
+                    }
+                    break;
+                case 4:
+                    CalculationGCD.calc_gcd();
+                    break;
+                case 5:
+                    if(GuessNumArithmProgr.GuessNumArithmProgres()) {
+                        counterInputUser++;
+                    } else {
+                        return;
+                    }
+                    break;
+                case 6:
+                    //int counterInputUser = 0;
+                    //eng.countNumCorrectAns(counterInputUser, curUserName, numGame);
+                    CalculateSimpleNumber.calcSimpleNumber();
+                    break;
+                default:
+                    System.out.println("Error input!");
+            }
         }
-
 //        switch(numGame) { ////////
 //            case 0:
 //
