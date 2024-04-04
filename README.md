@@ -1,11 +1,3 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/TelAndr/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/TelAndr/java-project-61/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/51bb753be572f00c42c0/maintainability)](https://codeclimate.com/github/TelAndr/java-project-61/maintainability)![CalcTrueAnswer](https://github.com/TelAndr/java-project-61/assets/157233257/698acd0f-c117-4ca5-820a-7e1351d35884)
-![CalcFalseAnswer](https://github.com/TelAndr/java-project-61/assets/157233257/c4923a17-7743-4486-bbe0-6b5294c29aeb)
-![EvenTrueAnswer](https://github.com/TelAndr/java-project-61/assets/157233257/0f66e355-b2cd-4fd0-a386-268ecabc70da)
-![EvenFalseAnswer](https://github.com/TelAndr/java-project-61/assets/157233257/6973b8aa-979f-4c0c-94ab-490da784185c)
-![CalcTrueAnswer](https://github.com/TelAndr/java-project-61/assets/157233257/35f3fdc8-8a2d-4c2c-a3c4-31a91e0ab724)
-![CalcGCD3examples](https://github.com/TelAndr/java-project-61/assets/157233257/774a247d-57a7-466b-98a7-23a95f80b240)
-![PrimeNum](https://github.com/TelAndr/java-project-61/assets/157233257/fec3adb3-e258-4df0-9abe-448d8a2c61ba)
-![ProgressionTrue](https://github.com/TelAndr/java-project-61/assets/157233257/86ad3503-59cc-413b-a4d1-5367effc5239)
-![ProgressionFalse](https://github.com/TelAndr/java-project-61/assets/157233257/cfdce07b-747f-42e4-8b99-e3fbd860a5ef)
+[![Maintainability](https://api.codeclimate.com/v1/badges/51bb753be572f00c42c0/maintainability)](https://codeclimate.com/github/TelAndr/java-project-61/maintainability)
