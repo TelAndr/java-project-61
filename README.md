@@ -1,3 +1,11 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/TelAndr/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/TelAndr/java-project-61/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/51bb753be572f00c42c0/maintainability)](https://codeclimate.com/github/TelAndr/java-project-61/maintainability)
+![CalcTrueAnswer](https://github.com/TelAndr/java-project-61/assets/157233257/d7b764c4-9580-402d-9d3d-e9a917a52717)
+![CalcFalseAnswer](https://github.com/TelAndr/java-project-61/assets/157233257/8ebdcfa1-6d3b-4fe9-9e51-bd0c6234b235)
+![EvenTrueAnswer](https://github.com/TelAndr/java-project-61/assets/157233257/c97338fe-cd8a-4d2a-aef9-6ee6bca2b429)
+![EvenFalseAnswer](https://github.com/TelAndr/java-project-61/assets/157233257/f3eccc9e-761a-4dc8-b044-c0c8ac842887)
+![CalcGCD3examples](https://github.com/TelAndr/java-project-61/assets/157233257/7ed38f72-b72a-4b15-b59c-a8109bd529a7)
+![PrimeNum](https://github.com/TelAndr/java-project-61/assets/157233257/4070513e-6771-44ec-b4ae-1cf0f445d3b9)
+![ProgressionTrue](https://github.com/TelAndr/java-project-61/assets/157233257/e1f00a1b-ae75-4984-ba60-b3fad09f84e6)
+![ProgressionFalse](https://github.com/TelAndr/java-project-61/assets/157233257/7c97fa5c-2ec8-4d37-9547-abad3a2c561d)
