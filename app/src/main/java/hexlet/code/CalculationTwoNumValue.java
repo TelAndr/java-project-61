@@ -24,7 +24,9 @@ public class CalculationTwoNumValue {
         }
         return resultMathOperation;
     }
-    public static boolean calcTwoNumValue() {
+    public static int getResultMathOperation()
+    {
+        //public static boolean calcTwoNumValue() {
         boolean isCorrectAnswer = false;
         int minValue = 1;
         int maxValue = 100;
@@ -38,8 +40,28 @@ public class CalculationTwoNumValue {
         //int i = minVal + (int) (Math.random() * (maxVal - minVal + 1));
         int i = generateIntNumberValue(minVal, maxVal);
         String simOper = operators[i];
-        int resultMathOperation = calcResultMathOperation(randomValueFirst, randomValueSecond, simOper);
+        System.out.println("Question: " + randomValueFirst + " " + simOper + " " + randomValueSecond);
+        return calcResultMathOperation(randomValueFirst, randomValueSecond, simOper);
+    }
+    public static boolean calcTwoNumValue() {
+        boolean isCorrectAnswer = false;
+//        int minValue = 1;
+//        int maxValue = 100;
+//        //int randomValueFirst = minValue + (int) (Math.random() * (maxValue - minValue + 1));
+//        //int randomValueSecond = minValue + (int) (Math.random() * (maxValue - minValue + 1));
+//        int randomValueFirst = generateIntNumberValue(minValue, maxValue);
+//        int randomValueSecond = generateIntNumberValue(minValue, maxValue);
+//        String[] operators = {"+", "*"};
+//        int minVal = 0;
+//        int maxVal = 1;
+//        //int i = minVal + (int) (Math.random() * (maxVal - minVal + 1));
+//        int i = generateIntNumberValue(minVal, maxVal);
+//        String simOper = operators[i];
+//        int resultMathOperation = calcResultMathOperation(randomValueFirst, randomValueSecond, simOper);
         //int resultMathOperation = 0;
+        int resultMathOperation = getResultMathOperation();
+        Engine curEng = new Engine();
+        curEng.calcNumValueUserResponse(resultMathOperation);
         //switch(simOper) {
         //    case "+":
         //        resultMathOperation = randomValueFirst + randomValueSecond;
@@ -48,18 +70,18 @@ public class CalculationTwoNumValue {
         //        resultMathOperation = randomValueFirst * randomValueSecond;
         //        break;
         //}
-        System.out.println("Question: " + randomValueFirst + " " + simOper + " " + randomValueSecond);
-        String strAnsUserOper = App.USER_INPUT.nextLine();
-        int ansUserOper = Integer.parseInt(strAnsUserOper); //input.nextInt();
-        System.out.println("Your answer: " + ansUserOper);
-        if(resultMathOperation == ansUserOper) {
-            dispValidRespMes();
-            isCorrectAnswer = true;
-        } else {
-            dispInvalidRespMes(String.valueOf(ansUserOper), String.valueOf(resultMathOperation), App.username);
-            isCorrectAnswer = false;
-        }
-        //}
+//        System.out.println("Question: " + randomValueFirst + " " + simOper + " " + randomValueSecond);
+//        String strAnsUserOper = App.USER_INPUT.nextLine();
+//        int ansUserOper = Integer.parseInt(strAnsUserOper); //input.nextInt();
+//        System.out.println("Your answer: " + ansUserOper);
+//        if(resultMathOperation == ansUserOper) {
+//            dispValidRespMes();
+//            isCorrectAnswer = true;
+//        } else {
+//            dispInvalidRespMes(String.valueOf(ansUserOper), String.valueOf(resultMathOperation), App.username);
+//            isCorrectAnswer = false;
+//        }
+//        //}
         return isCorrectAnswer;
     }
 }

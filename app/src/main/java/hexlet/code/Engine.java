@@ -7,6 +7,110 @@ public class Engine {
     //public static String getCurUserName() {
     //    return detectUserCurName;
     //}
+    public void pollUserResponse(int randomValue) {
+        int numInpIter = 3;
+        int counterInputUser = 0;
+        boolean isCorrectAnswer = false;
+        //String strPlayerResponse = App.USER_INPUT.nextLine();
+        while (true) {
+            if (counterInputUser == numInpIter) {
+                System.out.println("Congratulations, " + App.username + "!"); // playerName
+                return;
+                //}
+                //if(ParityInputGuessNum.determParityInpGuessNum()){
+                //    counterInputUser++;
+                //} else {
+                //    return;
+                //}
+            }
+            if (counterInputUser > 0) {
+                randomValue = ParityInputGuessNum.generateIntRandomValue();
+                System.out.println(randomValue);
+            }
+            System.out.println("Your answer:");
+            String strPlayerResponse = App.USER_INPUT.nextLine();
+            System.out.println(strPlayerResponse);
+            if ((ParityInputGuessNum.isParity(randomValue) && strPlayerResponse.equalsIgnoreCase("Yes")) ||
+                    (!ParityInputGuessNum.isParity(randomValue) && strPlayerResponse.equalsIgnoreCase("No"))) {
+                dispValidRespMes();
+                //System.out.println("Correct!");
+                isCorrectAnswer = true;
+                counterInputUser++;
+            }
+            if ((ParityInputGuessNum.isParity(randomValue) && strPlayerResponse.equalsIgnoreCase("No")) ||
+                    (!ParityInputGuessNum.isParity(randomValue) && strPlayerResponse.equalsIgnoreCase("Yes"))) {
+                dispInvalidRespMes("yes", "no", App.username);
+                //System.out.println(
+                //        "'yes' is wrong answer ;(. Correct answer was 'no'.\n" +
+                //                "Let's try again, " + userName + "!"
+                //);
+                isCorrectAnswer = false;
+                return;
+            }
+        }
+    }
+    public void calcNumValueUserResponse(int resultMathOperation) {
+        int numInpIter = 3;
+        int counterInputUser = 0;
+        boolean isCorrectAnswer = false;
+        while (true) {
+            if (counterInputUser == numInpIter) {
+                System.out.println("Congratulations, " + App.username + "!"); // playerName
+                return;
+            }
+            if (counterInputUser > 0) {
+                resultMathOperation = CalculationTwoNumValue.getResultMathOperation();
+                System.out.println(resultMathOperation);
+            }
+            //System.out.println("Question: " + randomValueFirst + " " + simOper + " " + randomValueSecond);
+            String strAnsUserOper = App.USER_INPUT.nextLine();
+            int ansUserOper = Integer.parseInt(strAnsUserOper); //input.nextInt();
+            System.out.println("Your answer: " + ansUserOper);
+            if(resultMathOperation == ansUserOper) {
+                dispValidRespMes();
+                isCorrectAnswer = true;
+                counterInputUser++;
+            } else {
+                dispInvalidRespMes(String.valueOf(ansUserOper), String.valueOf(resultMathOperation), App.username);
+                isCorrectAnswer = false;
+                return;
+            }
+        }
+    }
+    public void arifmProgrUserInput(int randValArifmProgress) {
+        int numInpIter = 3;
+        int counterInputUser = 0;
+        boolean isCorrectAnswer = false;
+        while (true) {
+            if (counterInputUser == numInpIter) {
+                System.out.println("Congratulations, " + App.username + "!"); // playerName
+                return;
+            }
+            if (counterInputUser > 0) {
+                int valFromArifmProgr = GuessNumArithmProgr.buildValFromArrayArifmProgress();
+                System.out.println(valFromArifmProgr);
+            }
+            String strAnsUserValue = App.USER_INPUT.nextLine();
+            int ansUserValue = Integer.parseInt(strAnsUserValue); //inputUser.nextInt();
+            System.out.println("Your answer: " + ansUserValue);
+            //if (arrArifmProgr[randIndValRepl] == ansUserValue) {
+            if (randValArifmProgress == ansUserValue) {
+                dispValidRespMes();
+                //System.out.println("Correct!");
+                isCorrectAnswer = true;
+                counterInputUser++;
+            } else {
+                //dispInvalidRespMes(String.valueOf(ansUserValue), String.valueOf(arrArifmProgr[randIndValRepl]), App.username);
+                dispInvalidRespMes(String.valueOf(ansUserValue), String.valueOf(randValArifmProgress), App.username);
+                //System.out.println("'" + ansUserValue + "' is wrong answer ;(. Correct answer was '"
+                //        + arrArifmProgr[randIndValRepl] + "'.");
+                //System.out.println("Let's try again, " + "secondPlayerName" + "!");
+                //return;
+                isCorrectAnswer = false;
+                return;
+            }
+        }
+    }
     public String detectUserName() {
         //Scanner in = new Scanner(System.in);
         System.out.println(

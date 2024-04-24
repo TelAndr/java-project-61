@@ -22,11 +22,11 @@ public class App {
         Engine eng = new Engine();
         int numInpIter = 3;
         int counterInputUser = 0;
-        while (true) {
-            if (counterInputUser == numInpIter) {
-                System.out.println("Congratulations, " + App.username + "!"); // playerName
-                return;
-            }
+//        while (true) {
+//            if (counterInputUser == numInpIter) {
+//                System.out.println("Congratulations, " + App.username + "!"); // playerName
+//                return;
+//            }
             switch (numGame) {
                 case 0:
                     break;
@@ -35,28 +35,31 @@ public class App {
                     curUserName = UserName.detectUserName();
                     break;
                 case 2:
-                    if(ParityInputGuessNum.determParityInpGuessNum()){
-                        counterInputUser++;
-                    } else {
-                        return;
-                    }
+                    //if(ParityInputGuessNum.determParityInpGuessNum()){
+                    //    counterInputUser++;
+                    //} else {
+                    //    return;
+                    //}
+                    ParityInputGuessNum.determParityInpGuessNum();
                     break;
                 case 3:
-                    if(CalculationTwoNumValue.calcTwoNumValue()) {
-                        counterInputUser++;
-                    } else {
-                        return;
-                    }
+                    //if(CalculationTwoNumValue.calcTwoNumValue()) {
+                    //    counterInputUser++;
+                    //} else {
+                    //    return;
+                    //}
+                    CalculationTwoNumValue.calcTwoNumValue();
                     break;
                 case 4:
                     CalculationGCD.calc_gcd();
                     break;
                 case 5:
-                    if(GuessNumArithmProgr.GuessNumArithmProgres()) {
-                        counterInputUser++;
-                    } else {
-                        return;
-                    }
+                    //if(GuessNumArithmProgr.GuessNumArithmProgres()) {
+                    //    counterInputUser++;
+                    //} else {
+                    //    return;
+                    //}
+                    GuessNumArithmProgr.GuessNumArithmProgres();
                     break;
                 case 6:
                     //int counterInputUser = 0;
@@ -66,7 +69,7 @@ public class App {
                 default:
                     System.out.println("Error input!");
             }
-        }
+        //}
 //        switch(numGame) { ////////
 //            case 0:
 //
