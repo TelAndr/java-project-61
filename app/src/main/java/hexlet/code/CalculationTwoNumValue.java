@@ -24,6 +24,33 @@ public class CalculationTwoNumValue {
         }
         return resultMathOperation;
     }
+    public static void prepareData(int numGame) {
+        String[] outResultDataArray = new String[3];
+        outResultDataArray = initData();
+        Engine curEng = new Engine();
+        curEng.prepareCalcNumValUserResponce(numGame, outResultDataArray);
+    }
+    public static String[] initData() {
+        boolean isCorrectAnswer = false;
+        int minValue = 1;
+        int maxValue = 100;
+        //int randomValueFirst = minValue + (int) (Math.random() * (maxValue - minValue + 1));
+        //int randomValueSecond = minValue + (int) (Math.random() * (maxValue - minValue + 1));
+        int randomValueFirst = generateIntNumberValue(minValue, maxValue);
+        int randomValueSecond = generateIntNumberValue(minValue, maxValue);
+        String[] operators = {"+", "*"};
+        int minVal = 0;
+        int maxVal = 1;
+        //int i = minVal + (int) (Math.random() * (maxVal - minVal + 1));
+        int i = generateIntNumberValue(minVal, maxVal);
+        String simOper = operators[i];
+        System.out.println("Question: " + randomValueFirst + " " + simOper + " " + randomValueSecond);
+        String[] outPrepareDataArray = new String[3];
+        outPrepareDataArray[0] = String.valueOf(randomValueFirst);
+        outPrepareDataArray[1] = simOper;
+        outPrepareDataArray[2] = String.valueOf(randomValueSecond);
+        return outPrepareDataArray;
+    }
     public static int getResultMathOperation()
     {
         //public static boolean calcTwoNumValue() {

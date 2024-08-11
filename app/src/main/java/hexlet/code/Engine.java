@@ -8,6 +8,7 @@ public class Engine {
     //    return detectUserCurName;
     //}
     public void pollUserResponse(int randomValue) {
+        //ParityInputGuessNum.generateIntRandomValue();
         int numInpIter = 3;
         int counterInputUser = 0;
         boolean isCorrectAnswer = false;
@@ -44,6 +45,86 @@ public class Engine {
                 //        "'yes' is wrong answer ;(. Correct answer was 'no'.\n" +
                 //                "Let's try again, " + userName + "!"
                 //);
+                isCorrectAnswer = false;
+                return;
+            }
+        }
+    }
+
+    public void prepareCalcNumValUserResponce(int numGame, String[] inputStringArray) {
+        int resultMathOperation = 0;
+        int numInpIter = 3;
+        int counterInputUser = 0;
+        int ansUserOneValue;
+        boolean isCorrectAnswer = false;
+        int firstVal, secondVal;
+        String operation;
+        int randomCountNum, randomValueFirst, randomValueDiff;
+        while (true) {
+            if (counterInputUser == numInpIter) {
+                System.out.println("Congratulations, " + App.username + "!"); // playerName
+                return;
+            }
+            if (counterInputUser > 0) {
+                switch(numGame) {
+                    case 2:
+                        firstVal = Integer.parseInt(inputStringArray[0]);
+                        System.out.println("Your answer:");
+                        String strPlayerResponse = App.USER_INPUT.nextLine();
+                        System.out.println(strPlayerResponse);
+                        if ((ParityInputGuessNum.isParity(firstVal) && strPlayerResponse.equalsIgnoreCase("Yes")) ||
+                                (!ParityInputGuessNum.isParity(firstVal) && strPlayerResponse.equalsIgnoreCase("No"))) {
+                            dispValidRespMes();
+                        }
+                        if ((ParityInputGuessNum.isParity(firstVal) && strPlayerResponse.equalsIgnoreCase("No")) ||
+                                (!ParityInputGuessNum.isParity(firstVal) && strPlayerResponse.equalsIgnoreCase("Yes"))) {
+                            dispInvalidRespMes("yes", "no", App.username);
+                        }
+                        break;
+                    case 3:
+                        firstVal = Integer.parseInt(inputStringArray[0]);
+                        operation = inputStringArray[1];
+                        secondVal = Integer.parseInt(inputStringArray[2]);
+                        resultMathOperation = CalculationTwoNumValue.calcResultMathOperation(firstVal,
+                                secondVal, operation);
+                        System.out.println(resultMathOperation);
+                        break;
+                    case 5:
+                        randomCountNum = Integer.parseInt(inputStringArray[0]);
+                        randomValueFirst = Integer.parseInt(inputStringArray[1]);
+                        randomValueDiff = Integer.parseInt(inputStringArray[2]);
+                        int[] arrArifmProgr = new int[randomCountNum];
+                        arrArifmProgr = GuessNumArithmProgr.generateArrayArifmProgress(arrArifmProgr, randomCountNum, randomValueFirst, randomValueDiff);
+                        int minIndValRepl = 6;
+                        int maxIndValRepl = randomCountNum - 1;
+                        //int randIndValRepl = minIndValRepl + (int) (Math.random() * (maxIndValRepl - minIndValRepl + 1));
+                        int randIndValRepl = GuessNumArithmProgr.generateIntNumberValue(minIndValRepl, maxIndValRepl);
+                        resultMathOperation = arrArifmProgr[randIndValRepl];
+                        System.out.println("Question: ");
+                        for(int ind = 0; ind < randomCountNum; ++ind) {
+                            if(ind == randIndValRepl) {
+                                System.out.print(".." + "\t");
+                            } else {
+                                System.out.print(arrArifmProgr[ind] + "\t");
+                            }
+                        }
+                        System.out.println();
+                        break;
+                    case 6:
+                        ansUserOneValue = Integer.parseInt(inputStringArray[0]);
+                        break;
+                }
+            }
+            //System.out.println("Question: " + randomValueFirst + " " + simOper + " " + randomValueSecond);
+            String strAnsUserOper = App.USER_INPUT.nextLine();
+            int ansUserOper = Integer.parseInt(strAnsUserOper); //input.nextInt();
+            System.out.println("Your answer: " + ansUserOper);
+            if(resultMathOperation == ansUserOper) {
+                dispValidRespMes();
+                isCorrectAnswer = true;
+                counterInputUser++;
+            } else {
+                dispInvalidRespMes(String.valueOf(ansUserOper), String.valueOf(resultMathOperation), App.username);
                 isCorrectAnswer = false;
                 return;
             }
@@ -296,15 +377,15 @@ public class Engine {
         int maxCountNum = 20;
         int randomCountNum = minCountNum + (int) (Math.random() * (maxCountNum - minCountNum + 1));
         int[] arrArifmProgr = new int[randomCountNum];
-        for(int ind = 0; ind < randomCountNum; ++ind) {
-            arrArifmProgr[ind] = randomValueFirst + randomValueDiff*(ind - 1);
+        for (int ind = 0; ind < randomCountNum; ++ind) {
+            arrArifmProgr[ind] = randomValueFirst + randomValueDiff * (ind - 1);
         }
         int minIndValRepl = 6;
         int maxIndValRepl = randomCountNum - 1;
         int randIndValRepl = minIndValRepl + (int) (Math.random() * (maxIndValRepl - minIndValRepl + 1));
         System.out.println("Question: ");
-        for(int ind = 0; ind < randomCountNum; ++ind) {
-            if(ind == randIndValRepl) {
+        for (int ind = 0; ind < randomCountNum; ++ind) {
+            if (ind == randIndValRepl) {
                 System.out.println("..");
             } else {
                 System.out.println(arrArifmProgr[ind]);
@@ -320,45 +401,10 @@ public class Engine {
             isCorrectAnswer = true;
         } else {
             dispInvalidRespMes(String.valueOf(ansUserValue), String.valueOf(arrArifmProgr[randIndValRepl]), App.username);
-            //System.out.println("'" + ansUserValue + "' is wrong answer ;(. Correct answer was '"
-            //        + arrArifmProgr[randIndValRepl] + "'.");
-            //System.out.println("Let's try again, " + "secondPlayerName" + "!");
-            //return;
-            isCorrectAnswer = false;
         }
         return isCorrectAnswer;
-    }
-    public boolean valIsSimple(int inpNum) {
-        int curNum, flag = 0;
-        for(curNum = 2; curNum <= inpNum/2; ++curNum) {
-            if(inpNum % curNum == 0) {
-                flag = 1;
-                break;
-            }
-        }
-        // condition for nonprime number
-        return (flag == 0);
-        //if (flag == 0) {
-        //    return true;
-        //}
-        //else {
-        //    return false;
-       //}
-    }
-    public void calcSimpleNumber() {
-        int testNum; boolean numIsSimple; // 36
-        System.out.println("Input positive integer number");
-        //Scanner inputUserNumber = new Scanner(System.in);
-        String strAnsUserOneValue = App.USER_INPUT.nextLine();
-        int ansUserOneValue = Integer.parseInt(strAnsUserOneValue); //inputUserNumber.nextInt();
-        testNum = ansUserOneValue;
-        System.out.println("You input next number:" + ansUserOneValue);
-        numIsSimple = valIsSimple(testNum);
-        if(numIsSimple) {
-            System.out.println("The input number is simple");
-        } else {
-            System.out.println("The input number is not simple");
-        }
-    }
-}
 
+        //System.out.println("'" + ansUserValue + "' is wrong answer ;(. Correct answer was '"
+        //        + arrArifmProgr[randIndValRepl] + "'.");
+        //System.out.println("Let's try)
+    }

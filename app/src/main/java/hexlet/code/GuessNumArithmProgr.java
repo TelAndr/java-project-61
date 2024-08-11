@@ -20,6 +20,32 @@ public class GuessNumArithmProgr {
         }
         return arrArifmProgr;
     }
+    public static String[] initData() {
+        boolean isCorrectAnswer = false;
+        int minValue = 1;
+        int maxValue = 100;
+        //int randomValueFirst = minValue + (int) (Math.random() * (maxValue - minValue + 1));
+        int randomValueFirst = generateIntNumberValue(minValue, maxValue);
+        int minValueDiff = 1;
+        int maxValueDiff = 10;
+        //int randomValueDiff = minValueDiff + (int) (Math.random() * (maxValueDiff - minValueDiff + 1));
+        int randomValueDiff = generateIntNumberValue(minValueDiff, maxValueDiff);
+        int minCountNum = 5;
+        int maxCountNum = 20;
+        //int randomCountNum = minCountNum + (int) (Math.random() * (maxCountNum - minCountNum + 1));
+        int randomCountNum = generateIntNumberValue(minCountNum, maxCountNum);
+        String[] outPrepareDataArray = new String[3];
+        outPrepareDataArray[0] = String.valueOf(randomCountNum);
+        outPrepareDataArray[1] = String.valueOf(randomValueFirst);
+        outPrepareDataArray[2] = String.valueOf(randomValueDiff);
+        return outPrepareDataArray;
+    }
+    public static void prepareData(int numGame) {
+        String[] outResultDataArray = new String[3];
+        outResultDataArray = initData();
+        Engine curEng = new Engine();
+        curEng.prepareCalcNumValUserResponce(numGame, outResultDataArray);
+    }
     public static int buildValFromArrayArifmProgress() {
         //public static boolean GuessNumArithmProgres() {
         boolean isCorrectAnswer = false;

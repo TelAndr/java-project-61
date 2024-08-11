@@ -35,30 +35,19 @@ public class App {
                     curUserName = UserName.detectUserName();
                     break;
                 case 2:
-                    //if(ParityInputGuessNum.determParityInpGuessNum()){
-                    //    counterInputUser++;
-                    //} else {
-                    //    return;
-                    //}
-                    ParityInputGuessNum.determParityInpGuessNum();
+                    //ParityInputGuessNum.determParityInpGuessNum();
+                    ParityInputGuessNum.initData();
                     break;
                 case 3:
-                    //if(CalculationTwoNumValue.calcTwoNumValue()) {
-                    //    counterInputUser++;
-                    //} else {
-                    //    return;
-                    //}
-                    CalculationTwoNumValue.calcTwoNumValue();
+                    //CalculationTwoNumValue.calcTwoNumValue();
+                    //CalculationTwoNumValue.prepareData(numGame);
+                    CalculationTwoNumValue.initData();
                     break;
                 case 4:
                     CalculationGCD.calc_gcd();
                     break;
                 case 5:
-                    //if(GuessNumArithmProgr.GuessNumArithmProgres()) {
-                    //    counterInputUser++;
-                    //} else {
-                    //    return;
-                    //}
+                    //GuessNumArithmProgr.prepareData(numGame);
                     GuessNumArithmProgr.GuessNumArithmProgres();
                     break;
                 case 6:
