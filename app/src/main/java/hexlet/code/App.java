@@ -1,4 +1,6 @@
 package hexlet.code;
+import hexlet.code.games.*;
+
 import java.util.Scanner;
 
 public class App {
@@ -25,27 +27,25 @@ public class App {
                     curUserName = eng.detectUserName();
                     break;
                 case 2:
-                    ParityInputGuessNum.prepareData(numGame);
+                    Parity.prepareData(numGame);
                     break;
                 case 3:
-                    CalculationTwoNumValue.prepareData(numGame);
+                    Calculate.prepareData(numGame);
                     break;
                 case 4:
-                    CalculationGCD.calc_gcd();
+                    GCD.calc_gcd();
                     break;
                 case 5:
-                    //GuessNumArithmProgr.prepareData(numGame);
-                    GuessNumArithmProgr.GuessNumArithmProgres();
+                    Progression.prepareData(numGame);
+                    //GuessNumArithmProgr.GuessNumArithmProgres();
                     break;
                 case 6:
                     //eng.countNumCorrectAns(counterInputUser, curUserName, numGame);
-                    CalculateSimpleNumber.calcSimpleNumber();
+                    //CalculateSimpleNumber.calcSimpleNumber();
+                    Prime.calcSimpleNumber();
                     break;
                 default:
                     System.out.println("Error input!");
             }
-    }
-    public static boolean isParity(int curNum) {
-        return curNum % 2 == 0;
     }
 }

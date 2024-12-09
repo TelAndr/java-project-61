@@ -1,6 +1,8 @@
-package hexlet.code;
+package hexlet.code.games;
 
-public class ParityInputGuessNum {
+import hexlet.code.Engine;
+
+public class Parity {
     public static int generateIntNumberValue(int minValue, int maxValue){
         return minValue + (int) (Math.random() * (maxValue - minValue + 1));
     }
@@ -10,7 +12,7 @@ public class ParityInputGuessNum {
     public static int generateIntRandomValue() {
         int minValue = 1;
         int maxValue = 100;
-        return generateIntNumberValue(minValue, maxValue);
+        return Utils.getRandomInt(minValue, maxValue); //generateIntNumberValue(minValue, maxValue);
     }
     public static void prepareData(int numGame) {
         String[] outResultDataArray = new String[3];

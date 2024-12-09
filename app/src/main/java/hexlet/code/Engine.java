@@ -1,6 +1,8 @@
 package hexlet.code;
 
-import java.util.Scanner;
+import hexlet.code.games.Calculate;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Parity;
 
 public class Engine {
     public void dispValidRespMes() {
@@ -33,12 +35,12 @@ public class Engine {
                         System.out.println("Your answer:");
                         String strPlayerResponse = App.USER_INPUT.nextLine();
                         System.out.println(strPlayerResponse);
-                        if ((ParityInputGuessNum.isParity(firstVal) && strPlayerResponse.equalsIgnoreCase("Yes")) ||
-                                (!ParityInputGuessNum.isParity(firstVal) && strPlayerResponse.equalsIgnoreCase("No"))) {
+                        if ((Parity.isParity(firstVal) && strPlayerResponse.equalsIgnoreCase("Yes")) ||
+                                (!Parity.isParity(firstVal) && strPlayerResponse.equalsIgnoreCase("No"))) {
                             dispValidRespMes();
                         }
-                        if ((ParityInputGuessNum.isParity(firstVal) && strPlayerResponse.equalsIgnoreCase("No")) ||
-                                (!ParityInputGuessNum.isParity(firstVal) && strPlayerResponse.equalsIgnoreCase("Yes"))) {
+                        if ((Parity.isParity(firstVal) && strPlayerResponse.equalsIgnoreCase("No")) ||
+                                (!Parity.isParity(firstVal) && strPlayerResponse.equalsIgnoreCase("Yes"))) {
                             dispInvalidRespMes("yes", "no", App.username);
                         }
                         break;
@@ -46,7 +48,7 @@ public class Engine {
                         firstVal = Integer.parseInt(inputStringArray[0]);
                         operation = inputStringArray[1];
                         secondVal = Integer.parseInt(inputStringArray[2]);
-                        resultMathOperation = CalculationTwoNumValue.calcResultMathOperation(firstVal,
+                        resultMathOperation = Calculate.calcResultMathOperation(firstVal,
                                 secondVal, operation);
                         System.out.println(resultMathOperation);
                         break;
@@ -55,10 +57,10 @@ public class Engine {
                         randomValueFirst = Integer.parseInt(inputStringArray[1]);
                         randomValueDiff = Integer.parseInt(inputStringArray[2]);
                         int[] arrArifmProgr = new int[randomCountNum];
-                        arrArifmProgr = GuessNumArithmProgr.generateArrayArifmProgress(arrArifmProgr, randomCountNum, randomValueFirst, randomValueDiff);
+                        arrArifmProgr = Progression.generateArrayArifmProgress(arrArifmProgr, randomCountNum, randomValueFirst, randomValueDiff);
                         int minIndValRepl = 6;
                         int maxIndValRepl = randomCountNum - 1;
-                        int randIndValRepl = GuessNumArithmProgr.generateIntNumberValue(minIndValRepl, maxIndValRepl);
+                        int randIndValRepl = Progression.generateIntNumberValue(minIndValRepl, maxIndValRepl);
                         resultMathOperation = arrArifmProgr[randIndValRepl];
                         System.out.println("Question: ");
                         for(int ind = 0; ind < randomCountNum; ++ind) {

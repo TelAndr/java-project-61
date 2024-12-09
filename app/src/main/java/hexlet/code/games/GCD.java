@@ -1,6 +1,8 @@
-package hexlet.code;
+package hexlet.code.games;
 
-public class CalculationGCD {
+import hexlet.code.App;
+
+public class GCD {
     public static int gcd(int firstNum, int secondNum) {
         while (secondNum != 0) {
             firstNum %= secondNum;

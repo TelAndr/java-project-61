@@ -1,6 +1,10 @@
-package hexlet.code;
+package hexlet.code.games;
 
-public class CalculateSimpleNumber {
+import hexlet.code.App;
+import hexlet.code.Engine;
+
+//public class CalculateSimpleNumber {
+public class Prime {
     public static boolean valIsSimple(int inpNum) {
         int curNum, flag = 0;
         for(curNum = 2; curNum <= inpNum/2; ++curNum) {

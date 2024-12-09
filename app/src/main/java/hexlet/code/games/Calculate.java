@@ -1,6 +1,8 @@
-package hexlet.code;
+package hexlet.code.games;
 
-public class CalculationTwoNumValue {
+import hexlet.code.Engine;
+
+public class Calculate {
     public static int generateIntNumberValue(int minValue, int maxValue){
         return minValue + (int) (Math.random() * (maxValue - minValue + 1));
     }
@@ -26,12 +28,12 @@ public class CalculationTwoNumValue {
         boolean isCorrectAnswer = false;
         int minValue = 1;
         int maxValue = 100;
-        int randomValueFirst = generateIntNumberValue(minValue, maxValue);
-        int randomValueSecond = generateIntNumberValue(minValue, maxValue);
+        int randomValueFirst = Utils.getRandomInt(minValue, maxValue); //generateIntNumberValue(minValue, maxValue);
+        int randomValueSecond = Utils.getRandomInt(minValue, maxValue); //generateIntNumberValue(minValue, maxValue);
         String[] operators = {"+", "*"};
         int minVal = 0;
         int maxVal = 1;
-        int i = generateIntNumberValue(minVal, maxVal);
+        int i = Utils.getRandomInt(minValue, maxValue); //generateIntNumberValue(minVal, maxVal);
         String simOper = operators[i];
         System.out.println("Question: " + randomValueFirst + " " + simOper + " " + randomValueSecond);
         String[] outPrepareDataArray = new String[3];
