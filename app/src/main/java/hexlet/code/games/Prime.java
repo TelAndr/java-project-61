@@ -17,10 +17,7 @@ public class Prime {
     }
     public static String[] initData() {
         String[] outPrepareDataArray = new String[3];
-        System.out.println("Input positive integer number");
-        String strAnsUserOneValue = App.USER_INPUT.nextLine();
-        int ansUserOneValue = Integer.parseInt(strAnsUserOneValue);
-        System.out.println("You input next number:" + ansUserOneValue);
+        int ansUserOneValue = Engine.receiveResponseFromUser();
         outPrepareDataArray[0] = String.valueOf(ansUserOneValue);
         outPrepareDataArray[1] = "Empty string1";
         outPrepareDataArray[2] = "Empty string2";
@@ -29,21 +26,6 @@ public class Prime {
     public static void prepareData(int numGame) {
         String[] outResultDataArray = new String[3];
         outResultDataArray = initData();
-        Engine curEng = new Engine();
-        curEng.prepareCalcNumValUserResponce(numGame, outResultDataArray);
-    }
-    public static void calcSimpleNumber() {
-        int testNum; boolean numIsSimple;
-        System.out.println("Input positive integer number");
-        String strAnsUserOneValue = App.USER_INPUT.nextLine();
-        int ansUserOneValue = Integer.parseInt(strAnsUserOneValue);
-        testNum = ansUserOneValue;
-        System.out.println("You input next number:" + ansUserOneValue);
-        numIsSimple = valIsSimple(testNum);
-        if(numIsSimple) {
-            System.out.println("The input number is simple");
-        } else {
-            System.out.println("The input number is not simple");
-        }
+        Engine.prepareCalcNumValUserResponce(numGame, outResultDataArray);
     }
 }

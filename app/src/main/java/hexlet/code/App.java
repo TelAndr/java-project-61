@@ -7,7 +7,10 @@ public class App {
     public static final Scanner USER_INPUT = new Scanner(System.in);
     public static String username = "";
     public static void main(String[] args) { //
-        Cli.askUser();
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println("May I have your name?");
+        App.username = App.USER_INPUT.nextLine();
+        System.out.println("Hello, " + App.username + "!");
         String curUserName = new String();
         Scanner in = new Scanner(System.in);
         System.out.println(
@@ -33,16 +36,13 @@ public class App {
                     Calculate.prepareData(numGame);
                     break;
                 case 4:
-                    GCD.calc_gcd();
+                    eng.userInteractWithCalcGCD();
                     break;
                 case 5:
                     Progression.prepareData(numGame);
-                    //GuessNumArithmProgr.GuessNumArithmProgres();
                     break;
                 case 6:
-                    //eng.countNumCorrectAns(counterInputUser, curUserName, numGame);
-                    //CalculateSimpleNumber.calcSimpleNumber();
-                    Prime.calcSimpleNumber();
+                    Prime.prepareData(numGame);
                     break;
                 default:
                     System.out.println("Error input!");

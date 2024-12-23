@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Parity {
     public static int generateIntNumberValue(int minValue, int maxValue){
@@ -17,18 +18,11 @@ public class Parity {
     public static void prepareData(int numGame) {
         String[] outResultDataArray = new String[3];
         outResultDataArray = initData();
-        Engine curEng = new Engine();
-        curEng.prepareCalcNumValUserResponce(numGame, outResultDataArray);
+        Engine.prepareCalcNumValUserResponce(numGame, outResultDataArray);
     }
     public static String[] initData() {
-        System.out.println(
-                "Answer 'yes' if the number is even, otherwise answer 'no'.\n" +
-                        "Question:"
-        );
         String[] outPrepareDataArray = new String[3];
-        //Engine curEng = new Engine();
         int randomValue = generateIntRandomValue();
-        System.out.println(randomValue);
         outPrepareDataArray[0] = String.valueOf(randomValue);
         outPrepareDataArray[1] = "Empty string1";
         outPrepareDataArray[2] = "Empty string2";
