@@ -1,9 +1,7 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Engine;
 
-//public class CalculateSimpleNumber {
 public class Prime {
     public static boolean valIsSimple(int inpNum) {
         int curNum, flag = 0;
@@ -15,12 +13,13 @@ public class Prime {
         }
         return (flag == 0);
     }
+    public static String strAnsPrime(boolean Prime) { return (Prime)? "Yes": "No";   }
     public static String[] initData() {
         String[] outPrepareDataArray = new String[3];
         int ansUserOneValue = Engine.receiveResponseFromUser();
         outPrepareDataArray[0] = String.valueOf(ansUserOneValue);
-        outPrepareDataArray[1] = "Empty string1";
-        outPrepareDataArray[2] = "Empty string2";
+        outPrepareDataArray[1] = String.valueOf(ansUserOneValue);
+        outPrepareDataArray[2] = String.valueOf(ansUserOneValue);
         return outPrepareDataArray;
     }
     public static void prepareData(int numGame) {

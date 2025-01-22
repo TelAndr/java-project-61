@@ -4,9 +4,6 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calculate {
-    public static int generateIntNumberValue(int minValue, int maxValue){
-        return minValue + (int) (Math.random() * (maxValue - minValue + 1));
-    }
     public static int calcResultMathOperation(int randomValueFirst, int randomValueSecond, String simOper) {
         int resultMathOperation = 0;
         switch(simOper) {
@@ -30,10 +27,10 @@ public class Calculate {
     public static String[] initData() {
         int minValue = 1;
         int maxValue = 100;
-        int randomValueFirst = Utils.getRandomInt(minValue, maxValue); //generateIntNumberValue(minValue, maxValue);
-        int randomValueSecond = Utils.getRandomInt(minValue, maxValue); //generateIntNumberValue(minValue, maxValue);
+        int randomValueFirst = Utils.getRandomInt(minValue, maxValue);
+        int randomValueSecond = Utils.getRandomInt(minValue, maxValue);
         char[] operators = {'+', '-', '*'};
-        int i = Utils.getRandomInt(minValue, maxValue); //generateIntNumberValue(minVal, maxVal);
+        int i = Utils.getRandomInt(minValue, maxValue);
         String simOper = new String(new char[]{operators[i]});
         String[] outPrepareDataArray = new String[3];
         outPrepareDataArray[0] = String.valueOf(randomValueFirst);

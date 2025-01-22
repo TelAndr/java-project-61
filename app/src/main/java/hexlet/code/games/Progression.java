@@ -4,8 +4,9 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
-    public static int generateIntNumberValue(int minValue, int maxValue){
-        return minValue + (int) (Math.random() * (maxValue - minValue + 1));
+    private static int randomNumFromArr;
+    public static int getRandomNumFromArr() {
+        return randomNumFromArr;
     }
     public static int[] generateArrayArifmProgress(int[] arrArifmProgr, int randomCountNum,
                                                    int randomValueFirst, int randomValueDiff) {
@@ -15,20 +16,35 @@ public class Progression {
         return arrArifmProgr;
     }
     public static String[] initData() {
-        boolean isCorrectAnswer = false;
         int minValue = 1;
         int maxValue = 100;
-        int randomValueFirst = Utils.getRandomInt(minValue, maxValue); //generateIntNumberValue(minValue, maxValue);
+        int randomValueFirst = Utils.getRandomInt(minValue, maxValue);
         int minValueDiff = 1;
         int maxValueDiff = 10;
-        int randomValueDiff = Utils.getRandomInt(minValueDiff, maxValueDiff); //generateIntNumberValue(minValueDiff, maxValueDiff);
+        int randomValueDiff = Utils.getRandomInt(minValueDiff, maxValueDiff);
         int minCountNum = 5;
         int maxCountNum = 20;
-        int randomCountNum = Utils.getRandomInt(minCountNum, maxCountNum); //generateIntNumberValue(minCountNum, maxCountNum);
+        int randomCountNum = Utils.getRandomInt(minCountNum, maxCountNum);
         String[] outPrepareDataArray = new String[3];
-        outPrepareDataArray[0] = String.valueOf(randomCountNum);
-        outPrepareDataArray[1] = String.valueOf(randomValueFirst);
-        outPrepareDataArray[2] = String.valueOf(randomValueDiff);
+
+        int[] arrArifmProgr = new int[randomCountNum];
+        arrArifmProgr = generateArrayArifmProgress(arrArifmProgr, randomCountNum, randomValueFirst, randomValueDiff);   // resultMathOperation
+        int minIndValRepl = 6;
+        int maxIndValRepl = randomCountNum - 1;
+        int randIndValRepl = Utils.getRandomInt(minIndValRepl, maxIndValRepl);
+        randomNumFromArr = arrArifmProgr[randIndValRepl];
+        String strAskArifmProgr = "Question: ";
+        for(int ind = 0; ind < randomCountNum; ++ind) {
+            if(ind == randIndValRepl) {
+                strAskArifmProgr += ".." + "\t";
+            } else {
+                strAskArifmProgr += arrArifmProgr[ind] + "\t";
+            }
+        }
+
+        outPrepareDataArray[0] = strAskArifmProgr; //String.valueOf(randomCountNum);
+        outPrepareDataArray[1] = String.valueOf(randomNumFromArr); //String.valueOf(randomValueFirst);
+        outPrepareDataArray[2] = String.valueOf(randomNumFromArr); //String.valueOf(randomValueDiff);
         return outPrepareDataArray;
     }
     public static void prepareData(int numGame) {
