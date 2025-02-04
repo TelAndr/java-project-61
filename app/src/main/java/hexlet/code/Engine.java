@@ -16,26 +16,24 @@ public class Engine {
                 corrVal + "'.");
         System.out.println("Let's try again," + userName + "!");
     }
-    public static void prepareCalcNumValUserResponce(int numGame, String[] inputStringArray) {
+    public static void prepareCalcNumValUserResponce(String[] inputStringArray, String strRuleGame) {
         int numInpIter = 3;
         int counterInputUser = 0;
         String[][] strCorrectAnswer = new String[6][2];
-        strCorrectAnswer[1][0] = inputStringArray[0] + inputStringArray[1] + inputStringArray[2];
-        strCorrectAnswer[1][1] = Parity.strAnsParity(
-                Parity.isParity(Integer.parseInt(inputStringArray[2])));
-        strCorrectAnswer[2][0] = "Question: " + inputStringArray[0] + " " +
+        strCorrectAnswer[1][0] = strRuleGame + inputStringArray[0] + inputStringArray[1];
+        strCorrectAnswer[1][1] = Parity.isParity(Integer.parseInt(inputStringArray[2]))? "Yes": "No";
+        strCorrectAnswer[2][0] = strRuleGame + inputStringArray[0] + " " +
                 inputStringArray[1] + " " + inputStringArray[2];
         strCorrectAnswer[2][1] = String.valueOf(Calculate.calcResultMathOperation(
                 Integer.parseInt(inputStringArray[0]), Integer.parseInt(inputStringArray[2]),
                 inputStringArray[1]));
-        strCorrectAnswer[3][0] = "What is greatest common divisor of " +
-                inputStringArray[0] + " and " + inputStringArray[1];
+        strCorrectAnswer[3][0] = strRuleGame + inputStringArray[0] + " " + inputStringArray[1];
         strCorrectAnswer[3][1] = String.valueOf(
                 GCD.gcd(Integer.parseInt(inputStringArray[0]), Integer.parseInt(inputStringArray[1]))
         );
-        strCorrectAnswer[4][0] = inputStringArray[0];
+        strCorrectAnswer[4][0] = strRuleGame + inputStringArray[0];
         strCorrectAnswer[4][1] = String.valueOf(Progression.getRandomNumFromArr());
-        strCorrectAnswer[5][0] = "The input number is simple?";
+        strCorrectAnswer[5][0] = strRuleGame + inputStringArray[0];
         strCorrectAnswer[5][1] = Prime.strAnsPrime(Prime.valIsSimple(Integer.parseInt(inputStringArray[0])));
         while (true) {
             if (counterInputUser == numInpIter) {
@@ -57,35 +55,5 @@ public class Engine {
                 }
             }
         }
-    }
-    public static String getAnsUserOneValue() {
-        System.out.println("Input first positive integer number");
-        String strAnsUserOneValue = App.USER_INPUT.nextLine();
-        System.out.println("You input next one number:" + strAnsUserOneValue);
-        return strAnsUserOneValue;
-    }
-    public static String getAnsUserTwoValue() {
-        System.out.println("Input second positive integer number");
-        String strAnsUserTwoValue = App.USER_INPUT.nextLine();
-        System.out.println("You input next two number:" + strAnsUserTwoValue);
-        return strAnsUserTwoValue;
-
-    }
-    public static int receiveResponseFromUser() {
-        System.out.println("Input positive integer number");
-        String strAnsUserOneValue = App.USER_INPUT.nextLine();
-        int ansUserOneValue = Integer.parseInt(strAnsUserOneValue);
-        System.out.println("You input next number:" + ansUserOneValue);
-        return ansUserOneValue;
-    }
-    public static String detectUserName() {
-        System.out.println(
-                "Welcome to the Brain Games!\n" +
-                        "May I have your name?"
-        );
-        String playerName = App.USER_INPUT.nextLine();
-        System.out.println(playerName + "\n");
-        System.out.println("Hello, " + playerName + "!");
-        return playerName;
     }
 }

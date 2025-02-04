@@ -22,7 +22,7 @@ public class App {
                 case 0:
                     break;
                 case 1:
-                    Engine.detectUserName();
+                    Cli.askUser();
                     break;
                 case 2:
                     Parity.prepareData(numGame);
@@ -32,7 +32,6 @@ public class App {
                     break;
                 case 4:
                     GCD.prepareData(numGame);
-                    //eng.userInteractWithCalcGCD();
                     break;
                 case 5:
                     Progression.prepareData(numGame);

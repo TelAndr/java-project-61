@@ -8,10 +8,10 @@ public class Progression {
     public static int getRandomNumFromArr() {
         return randomNumFromArr;
     }
-    public static int[] generateArrayArifmProgress(int[] arrArifmProgr, int randomCountNum,
+    public static String[] generateArrayArifmProgress(String[] arrArifmProgr, int randomCountNum,
                                                    int randomValueFirst, int randomValueDiff) {
         for(int ind = 0; ind < randomCountNum; ++ind) {
-            arrArifmProgr[ind] = randomValueFirst + randomValueDiff*(ind - 1);
+            arrArifmProgr[ind] = String.valueOf(randomValueFirst + randomValueDiff*(ind - 1));
         }
         return arrArifmProgr;
     }
@@ -27,29 +27,24 @@ public class Progression {
         int randomCountNum = Utils.getRandomInt(minCountNum, maxCountNum);
         String[] outPrepareDataArray = new String[3];
 
-        int[] arrArifmProgr = new int[randomCountNum];
+        String[] arrArifmProgr = new String[randomCountNum];
         arrArifmProgr = generateArrayArifmProgress(arrArifmProgr, randomCountNum, randomValueFirst, randomValueDiff);   // resultMathOperation
         int minIndValRepl = 6;
         int maxIndValRepl = randomCountNum - 1;
         int randIndValRepl = Utils.getRandomInt(minIndValRepl, maxIndValRepl);
-        randomNumFromArr = arrArifmProgr[randIndValRepl];
-        String strAskArifmProgr = "Question: ";
-        for(int ind = 0; ind < randomCountNum; ++ind) {
-            if(ind == randIndValRepl) {
-                strAskArifmProgr += ".." + "\t";
-            } else {
-                strAskArifmProgr += arrArifmProgr[ind] + "\t";
-            }
-        }
+        randomNumFromArr = Integer.parseInt(arrArifmProgr[randIndValRepl]);
+        arrArifmProgr[randIndValRepl] = "..";
+        String strAskArifmProgr = String.join(" ", arrArifmProgr);
 
-        outPrepareDataArray[0] = strAskArifmProgr; //String.valueOf(randomCountNum);
-        outPrepareDataArray[1] = String.valueOf(randomNumFromArr); //String.valueOf(randomValueFirst);
-        outPrepareDataArray[2] = String.valueOf(randomNumFromArr); //String.valueOf(randomValueDiff);
+        outPrepareDataArray[0] = strAskArifmProgr;
+        outPrepareDataArray[1] = String.valueOf(randomNumFromArr);
+        outPrepareDataArray[2] = String.valueOf(randomNumFromArr);
         return outPrepareDataArray;
     }
     public static void prepareData(int numGame) {
         String[] outResultDataArray = new String[3];
         outResultDataArray = initData();
-        Engine.prepareCalcNumValUserResponce(numGame, outResultDataArray);
+        String strRuleGame = "What number is missing in the progression?\nQuestion: ";
+        Engine.prepareCalcNumValUserResponce(outResultDataArray, strRuleGame);
     }
 }

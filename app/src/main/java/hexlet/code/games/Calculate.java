@@ -22,7 +22,8 @@ public class Calculate {
     public static void prepareData(int numGame) {
         String[] outResultDataArray = new String[3];
         outResultDataArray = initData();
-        Engine.prepareCalcNumValUserResponce(numGame, outResultDataArray);
+        String strRuleGame = "What is the result of the expression?\nQuestion: ";
+        Engine.prepareCalcNumValUserResponce(outResultDataArray, strRuleGame);
     }
     public static String[] initData() {
         int minValue = 1;
