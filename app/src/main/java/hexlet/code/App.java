@@ -25,19 +25,19 @@ public class App {
                     Cli.askUser();
                     break;
                 case 2:
-                    Parity.prepareData(numGame);
+                    Parity.prepareData();
                     break;
                 case 3:
-                    Calculate.prepareData(numGame);
+                    Calculate.prepareData();
                     break;
                 case 4:
-                    GCD.prepareData(numGame);
+                    GCD.prepareData();
                     break;
                 case 5:
-                    Progression.prepareData(numGame);
+                    Progression.prepareData();
                     break;
                 case 6:
-                    Prime.prepareData(numGame);
+                    Prime.prepareData();
                     break;
                 default:
                     System.out.println("Error input!");
