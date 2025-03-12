@@ -15,25 +15,23 @@ public class Prime {
         return (flag == 0);
     }
     public static String[] initData() {
-        String[] outPrepareDataArray = new String[3];
-        int countAttempt = 3;
+        String[] outPrepareDataArray = new String[Engine.countAttempt];
         int minValue = 1;
         int maxValue = 100;
-        for (int i = 0; i < countAttempt; i++) {
+        for (int i = 0; i < Engine.countAttempt; i++) {
             outPrepareDataArray[i] = String.valueOf(Utils.getRandomInt(minValue, maxValue));
         }
         return outPrepareDataArray;
     }
-    public static void prepareData() {
-        int countAttempt = 3;
-        String[] outResultDataArray = new String[3];
-        String[][] outResultAttemptAskAnswer = new String[3][2];
+    public static void run() {
+        String[] outResultDataArray = new String[Engine.countAttempt];
+        String[][] outResultAttemptAskAnswer = new String[Engine.countAttempt][2];
         outResultDataArray = initData();
         String strRuleGame = "Answer 'yes' if given number is prime. Otherwise answer 'no'.\nQuestion: ";
-        for (int i = 0; i < countAttempt; i++) {
+        for (int i = 0; i < Engine.countAttempt; i++) {
             outResultAttemptAskAnswer[i][0] = outResultDataArray[i];
         }
-        for (int i = 0; i < countAttempt; i++) {
+        for (int i = 0; i < Engine.countAttempt; i++) {
             outResultAttemptAskAnswer[i][1] = valIsSimple(Integer.parseInt(outResultDataArray[i]))? "Yes": "No";
         }
         Engine.prepareCalcNumValUserResponce(outResultAttemptAskAnswer, strRuleGame);

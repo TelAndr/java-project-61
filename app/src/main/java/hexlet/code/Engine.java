@@ -1,43 +1,30 @@
 package hexlet.code;
 
 public class Engine {
-    public static void dispValidRespMes() {
-        System.out.println("Correct!");
-    }
+    public static int countAttempt = 3;
 
-    public static void dispInvalidRespMes(String incorrVal, String corrVal, String userName) {
-        System.out.println("'" + incorrVal + "' is wrong answer ;(. Correct answer was '" +
-                corrVal + "'.");
-        System.out.println("Let's try again," + userName + "!");
+    public static void printUserName() {
+        System.out.println("May I have your name?");
+        App.username = App.USER_INPUT.nextLine();
+        System.out.println("Hello, " + App.username + "!");
     }
-    public static void prepareCalcNumValUserResponce(String[][] inputStringArray, String strRuleGame) {
-        int numInpIter = 3;
-        int counterInputUser = 0;
-        String[][] strCorrectAnswer = new String[3][2];
-        for (int iAttempt = 0; iAttempt < numInpIter; ++iAttempt) {
-            strCorrectAnswer[iAttempt][0] = inputStringArray[iAttempt][0];
-            strCorrectAnswer[iAttempt][1] = inputStringArray[iAttempt][1];
-        }
-        while (true) {
-            if (counterInputUser == numInpIter) {
-                System.out.println("Congratulations, " + App.username + "!");
-                return;
+    public static void prepareCalcNumValUserResponce(String[][] strCorrectAnswer, String strRuleGame) {
+        for (int iAtt = 0; iAtt < Engine.countAttempt; ++iAtt) {
+            if (iAtt == 0) {
+                System.out.println(strRuleGame);
             }
-            if (counterInputUser > 0) {
-                if (counterInputUser == 1) {
-                    System.out.println(strRuleGame);
-                }
-                System.out.println(strCorrectAnswer[counterInputUser][0]);
-                String strAnsUserOper = App.USER_INPUT.nextLine();
-                System.out.println("Your answer: " + strAnsUserOper);
-                if (strCorrectAnswer[counterInputUser][1].equalsIgnoreCase(strAnsUserOper)) {
-                    dispValidRespMes();
-                    counterInputUser++;
-                } else {
-                    dispInvalidRespMes(strAnsUserOper, strCorrectAnswer[counterInputUser][1], App.username);
-                    return;
-                }
+            System.out.println(strCorrectAnswer[iAtt][0]);
+            String strAnsUserOper = App.USER_INPUT.nextLine();
+            System.out.println("Your answer: " + strAnsUserOper);
+            if (!strCorrectAnswer[iAtt][1].equalsIgnoreCase(strAnsUserOper)) {
+                System.out.println("'" + strAnsUserOper + "' is wrong answer ;(. Correct answer was '" +
+                        strCorrectAnswer[iAtt][1] + "'.");
+                System.out.println("Let's try again," + App.username + "!");
+                break;
+            } else {
+                System.out.println("Correct!");
             }
         }
+        System.out.println("Congratulations, " + App.username + "!");
     }
 }
