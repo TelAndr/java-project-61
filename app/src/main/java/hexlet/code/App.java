@@ -23,7 +23,7 @@ public class App {
                 case 0:
                     break;
                 case 1:
-                    Cli.askUser();
+                    //Cli.askUser();
                     break;
                 case 2:
                     Parity.run();
