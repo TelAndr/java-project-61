@@ -11,7 +11,7 @@ public class Engine {
     public static void prepareCalcNumValUserResponce(String[][] strCorrectAnswer, String strRuleGame) {
         for (int iAtt = 0; iAtt < Engine.countAttempt; ++iAtt) {
             if (iAtt == 0) {
-                System.out.println(strRuleGame);
+                System.out.print(strRuleGame);
             }
             System.out.println(strCorrectAnswer[iAtt][0]);
             String strAnsUserOper = App.USER_INPUT.nextLine();
