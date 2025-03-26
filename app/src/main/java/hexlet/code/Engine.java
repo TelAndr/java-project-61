@@ -12,6 +12,8 @@ public class Engine {
         for (int iAtt = 0; iAtt < Engine.countAttempt; ++iAtt) {
             if (iAtt == 0) {
                 System.out.print(strRuleGame);
+            } else {
+                System.out.print("Question: ");
             }
             System.out.println(strCorrectAnswer[iAtt][0]);
             String strAnsUserOper = App.USER_INPUT.nextLine();
