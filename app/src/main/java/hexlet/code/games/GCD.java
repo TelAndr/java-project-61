@@ -34,7 +34,7 @@ public class GCD {
         int maxValue = 100;
         for (int i = 0; i < Engine.countAttempt; i++) {
             for (int j = 0; j < 2; j++) {
-                outPrepareDataArray[i][j] =String.valueOf(Utils.getRandomInt(minValue, maxValue));
+                outPrepareDataArray[i][j] = String.valueOf(Utils.getRandomInt(minValue, maxValue));
             }
         }
         return outPrepareDataArray;
