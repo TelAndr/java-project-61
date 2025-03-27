@@ -6,7 +6,7 @@ import hexlet.code.Utils;
 public class Calculate {
     public static int calcResultMathOperation(int randomValueFirst, int randomValueSecond, String simOper) {
         int resultMathOperation = 0;
-        switch(simOper) {
+        switch (simOper) {
             case "+":
                 resultMathOperation = randomValueFirst + randomValueSecond;
                 break;
@@ -25,8 +25,8 @@ public class Calculate {
         outResultDataArray = initData();
         String strRuleGame = "What is the result of the expression?\nQuestion: ";
         for (int i = 0; i < Engine.countAttempt; i++) {
-            outResultAttemptAskAnswer[i][0] = outResultDataArray[i][0] +
-                    outResultDataArray[i][1] + outResultDataArray[i][2];
+            outResultAttemptAskAnswer[i][0] = outResultDataArray[i][0]
+                    + outResultDataArray[i][1] + outResultDataArray[i][2];
         }
         for (int i = 0; i < Engine.countAttempt; i++) {
             outResultAttemptAskAnswer[i][1] = String.valueOf(calcResultMathOperation(
