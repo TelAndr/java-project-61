@@ -5,9 +5,10 @@ import hexlet.code.Utils;
 
 public class Prime {
     public static boolean valIsSimple(int inpNum) {
-        int curNum, flag = 0;
-        for(curNum = 2; curNum <= Math.sqrt(inpNum); ++curNum) {
-            if(inpNum % curNum == 0) {
+        int curNum;
+        int flag = 0;
+        for (curNum = 2; curNum <= Math.sqrt(inpNum); ++curNum) {
+            if (inpNum % curNum == 0) {
                 flag = 1;
                 break;
             }
@@ -32,7 +33,7 @@ public class Prime {
             outResultAttemptAskAnswer[i][0] = outResultDataArray[i];
         }
         for (int i = 0; i < Engine.countAttempt; i++) {
-            outResultAttemptAskAnswer[i][1] = valIsSimple(Integer.parseInt(outResultDataArray[i]))? "Yes": "No";
+            outResultAttemptAskAnswer[i][1] = valIsSimple(Integer.parseInt(outResultDataArray[i])) ? "Yes": "No";
         }
         Engine.prepareCalcNumValUserResponce(outResultAttemptAskAnswer, strRuleGame);
     }
