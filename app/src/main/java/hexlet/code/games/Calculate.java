@@ -16,6 +16,8 @@ public class Calculate {
             case "*":
                 resultMathOperation = randomValueFirst * randomValueSecond;
                 break;
+            default:
+                resultMathOperation = 0;
         }
         return resultMathOperation;
     }
