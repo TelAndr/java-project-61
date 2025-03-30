@@ -11,8 +11,8 @@ public class Progression {
     public static String[] generateArrayArifmProgress(int randomCountNum,
                                                    int randomValueFirst, int randomValueDiff) {
         String[] arrArifmProgr = new String[randomCountNum];
-        for(int ind = 0; ind < randomCountNum; ++ind) {
-            arrArifmProgr[ind] = String.valueOf(randomValueFirst + randomValueDiff*(ind - 1));
+        for (int ind = 0; ind < randomCountNum; ++ind) {
+            arrArifmProgr[ind] = String.valueOf(randomValueFirst + randomValueDiff * (ind - 1));
         }
         return arrArifmProgr;
     }
@@ -34,7 +34,7 @@ public class Progression {
 
         for (int i = 0; i < Engine.countAttempt; i++) {
             String[] arrArifmProgr = new String[randomCountNum];
-            arrArifmProgr = generateArrayArifmProgress(randomCountNum, randomValueFirst, randomValueDiff);   // resultMathOperation
+            arrArifmProgr = generateArrayArifmProgress(randomCountNum, randomValueFirst, randomValueDiff);
             int minIndValRepl = 6;
             int maxIndValRepl = randomCountNum - 1;
             int randIndValRepl = Utils.getRandomInt(minIndValRepl, maxIndValRepl);
