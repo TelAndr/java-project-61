@@ -33,7 +33,7 @@ public class Prime {
             outResultAttemptAskAnswer[i][0] = outResultDataArray[i];
         }
         for (int i = 0; i < Engine.countAttempt; i++) {
-            outResultAttemptAskAnswer[i][1] = valIsSimple(Integer.parseInt(outResultDataArray[i])) ? "Yes": "No";
+            outResultAttemptAskAnswer[i][1] = valIsSimple(Integer.parseInt(outResultDataArray[i])) ? "Yes" : "No";
         }
         Engine.prepareCalcNumValUserResponce(outResultAttemptAskAnswer, strRuleGame);
     }
