@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class App {
     public static final Scanner USER_INPUT = new Scanner(System.in);
-    public static String username = "";
+    public static String username; //"";
     public static void main(String[] args) {
-        System.out.println("Let's try again, " + App.username + "!");
+        System.out.println("Let's try again, " + username + "!");
         System.out.println(
                 "Please enter the game number and press Enter.\n"
                         + "1 - Greet\n" + "2 - Even\n" + "3 - Calc\n" + "4 - GCD\n"
