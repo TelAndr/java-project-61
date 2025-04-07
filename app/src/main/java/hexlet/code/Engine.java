@@ -21,7 +21,7 @@ public class Engine {
             if (!strCorrectAnswer[iAtt][1].equalsIgnoreCase(strAnsUserOper)) {
                 System.out.println("'" + strAnsUserOper + "' is wrong answer ;(. Correct answer was '" +
                         strCorrectAnswer[iAtt][1] + "'.");
-                System.out.println("Let's try again," + App.username + "!");
+                System.out.println("Let's try again, " + App.username + "!");
                 break;
             } else {
                 System.out.println("Correct!");
