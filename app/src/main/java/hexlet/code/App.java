@@ -1,12 +1,15 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
-
+import hexlet.code.games.Calculate;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Parity;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {
     public static final Scanner USER_INPUT = new Scanner(System.in);
-    public static String username; //"";
+    public static String username; 
     public static void main(String[] args) {
         //if (username != null) {
         //    System.out.println("Let's try again, " + username + "!");
