@@ -25,8 +25,11 @@ public class Engine {
                 break;
             } else {
                 System.out.println("Correct!");
+                if (iAtt == Engine.countAttempt - 1) {
+                    System.out.println("Congratulations, " + App.username + "!");
+                }
             }
         }
-        System.out.println("Congratulations, " + App.username + "!");
+        //System.out.println("Congratulations, " + App.username + "!");
     }
 }
