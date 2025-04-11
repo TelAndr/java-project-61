@@ -25,7 +25,8 @@ public class Calculate {
         String[][] outResultDataArray = new String[Engine.countAttempt][3];
         String[][] outResultAttemptAskAnswer = new String[Engine.countAttempt][2];
         outResultDataArray = initData();
-        String strRuleGame = "What is the result of the expression?\nQuestion: ";
+        //String strRuleGame = "What is the result of the expression?\nQuestion: ";
+        String strRuleGame = "What is the result of the expression?";
         for (int i = 0; i < Engine.countAttempt; i++) {
             outResultAttemptAskAnswer[i][0] = outResultDataArray[i][0] + " "
                     + outResultDataArray[i][1] + " " + outResultDataArray[i][2];
