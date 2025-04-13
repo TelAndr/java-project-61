@@ -12,6 +12,7 @@ public class Engine {
         for (int iAtt = 0; iAtt < Engine.countAttempt; ++iAtt) {
             if (iAtt == 0) {
                 System.out.print(strRuleGame);
+                System.out.print("Question: ");
             } else {
                 System.out.print("Question: ");
             }
