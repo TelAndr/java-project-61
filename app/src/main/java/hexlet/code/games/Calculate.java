@@ -41,6 +41,8 @@ public class Calculate {
     public static String[][] initData() {
         int minValue = 1;
         int maxValue = 100;
+        int minIndVal = 0;
+        int maxIndVal = 2;
         char[] operators = {'+', '-', '*'};
         String[][] outDataToTransfer = new String[Engine.countAttempt][3];
         int[] arrRandomValueFirstAttempt = new int[Engine.countAttempt];
@@ -49,7 +51,7 @@ public class Calculate {
         for (int iAtt = 0; iAtt < Engine.countAttempt; iAtt++) {
             arrRandomValueFirstAttempt[iAtt] = Utils.getRandomInt(minValue, maxValue);
             arrRandomValueSecondAttempt[iAtt] = Utils.getRandomInt(minValue, maxValue);
-            arrIndAttempt[iAtt] = Utils.getRandomInt(minValue, maxValue);
+            arrIndAttempt[iAtt] = Utils.getRandomInt(minIndVal, maxIndVal);
         }
         String[] arrSimOper = new String[Engine.countAttempt];
         for (int iAtt = 0; iAtt < Engine.countAttempt; iAtt++) {
