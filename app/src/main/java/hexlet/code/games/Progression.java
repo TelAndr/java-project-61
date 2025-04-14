@@ -55,7 +55,8 @@ public class Progression {
         String[][] outResultDataArray = new String[Engine.countAttempt][2];
         String[][] outResultAttemptAskAnswer = new String[Engine.countAttempt][2];
         outResultDataArray = initData();
-        String strRuleGame = "What number is missing in the progression?\nQuestion: ";
+        String strRuleGame = "What number is missing in the progression?";
+        //String strRuleGame = "What number is missing in the progression?\nQuestion: ";
         for (int i = 0; i < Engine.countAttempt; i++) {
             outResultAttemptAskAnswer[i][0] = outResultDataArray[i][0] + outResultDataArray[i][1];
         }

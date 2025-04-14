@@ -12,7 +12,8 @@ public class Parity {
         String[] outResultDataArray = new String[Engine.countAttempt];
         String[][] outResultAttemptAskAnswer = new String[Engine.countAttempt][2];
         outResultDataArray = initData();
-        String strRuleGame = "Answer 'yes' if the number is even, otherwise answer 'no'.\nQuestion: ";
+        String strRuleGame = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        //String strRuleGame = "Answer 'yes' if the number is even, otherwise answer 'no'.\nQuestion: ";
         for (int i = 0; i < Engine.countAttempt; i++) {
             outResultAttemptAskAnswer[i][0] = outResultDataArray[i];
         }

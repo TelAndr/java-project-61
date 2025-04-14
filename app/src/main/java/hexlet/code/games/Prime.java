@@ -28,7 +28,8 @@ public class Prime {
         String[] outResultDataArray = new String[Engine.countAttempt];
         String[][] outResultAttemptAskAnswer = new String[Engine.countAttempt][2];
         outResultDataArray = initData();
-        String strRuleGame = "Answer 'yes' if given number is prime. Otherwise answer 'no'.\nQuestion: ";
+        String strRuleGame = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        //String strRuleGame = "Answer 'yes' if given number is prime. Otherwise answer 'no'.\nQuestion: ";
         for (int i = 0; i < Engine.countAttempt; i++) {
             outResultAttemptAskAnswer[i][0] = outResultDataArray[i];
         }
