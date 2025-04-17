@@ -4,28 +4,33 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
-    private static int randomNumFromArr;
-    public static int getRandomNumFromArr() {
-        return randomNumFromArr;
+    //private static int randomNumFromArr;
+    private static int[] arrRandomNumFromArr = new int[Engine.countAttempt];
+    public static int getArrRandomNumFromArr(int ind) {
+        return arrRandomNumFromArr[ind];
     }
     public static String[] generateArrayArifmProgress(int randomCountNum,
                                                    int randomValueFirst, int randomValueDiff) {
         String[] arrArifmProgr = new String[randomCountNum];
         for (int ind = 0; ind < randomCountNum; ++ind) {
-            arrArifmProgr[ind] = String.valueOf(randomValueFirst + randomValueDiff * (ind - 1));
+            arrArifmProgr[ind] = String.valueOf(randomValueFirst + randomValueDiff * ind);
         }
         return arrArifmProgr;
     }
     public static String[][] initData() {
+        int randomNumFromArr;
         int minValue = 1;
         int maxValue = 100;
         int randomValueFirst = Utils.getRandomInt(minValue, maxValue);
+        int[] arrRandomValueFirst = new int[Engine.countAttempt];
         int minValueDiff = 1;
         int maxValueDiff = 10;
         int randomValueDiff = Utils.getRandomInt(minValueDiff, maxValueDiff);
+        int[] arrRandomValueDiff = new int[Engine.countAttempt];
         int minCountNum = 5;
         int maxCountNum = 20;
         int randomCountNum = Utils.getRandomInt(minCountNum, maxCountNum);
+        int[] arrRandomCountNum = new int[Engine.countAttempt];
         String[][] outPrepareDataArray = new String[Engine.countAttempt][2];
         int[] arrRandomNumFromArr = new int[Engine.countAttempt];
 
@@ -33,10 +38,13 @@ public class Progression {
         String[] arrStrAskArifmprogr = new String[Engine.countAttempt];
 
         for (int i = 0; i < Engine.countAttempt; i++) {
-            String[] arrArifmProgr = new String[randomCountNum];
-            arrArifmProgr = generateArrayArifmProgress(randomCountNum, randomValueFirst, randomValueDiff);
-            int minIndValRepl = 6;
-            int maxIndValRepl = randomCountNum - 1;
+            arrRandomValueFirst[i] = Utils.getRandomInt(minValue, maxValue);
+            arrRandomValueDiff[i] = Utils.getRandomInt(minValueDiff, maxValueDiff);
+            arrRandomCountNum[i] = Utils.getRandomInt(minCountNum, maxCountNum);
+            String[] arrArifmProgr = new String[arrRandomCountNum[i]];
+            arrArifmProgr = generateArrayArifmProgress(arrRandomCountNum[i], arrRandomValueFirst[i], arrRandomValueDiff[i]);
+            int minIndValRepl = 1;
+            int maxIndValRepl = arrRandomCountNum[i] - 1;
             int randIndValRepl = Utils.getRandomInt(minIndValRepl, maxIndValRepl);
             randomNumFromArr = Integer.parseInt(arrArifmProgr[randIndValRepl]);
             arrRandomNumFromArr[i] = randomNumFromArr;
@@ -58,10 +66,10 @@ public class Progression {
         String strRuleGame = "What number is missing in the progression?";
         //String strRuleGame = "What number is missing in the progression?\nQuestion: ";
         for (int i = 0; i < Engine.countAttempt; i++) {
-            outResultAttemptAskAnswer[i][0] = outResultDataArray[i][0] + outResultDataArray[i][1];
+            outResultAttemptAskAnswer[i][0] = outResultDataArray[i][0];
         }
         for (int i = 0; i < Engine.countAttempt; i++) {
-            outResultAttemptAskAnswer[i][1] = String.valueOf(getRandomNumFromArr());
+            outResultAttemptAskAnswer[i][1] = outResultDataArray[i][1]; //String.valueOf(getArrRandomNumFromArr(i));
         }
         Engine.prepareCalcNumValUserResponce(outResultAttemptAskAnswer, strRuleGame);
     }
