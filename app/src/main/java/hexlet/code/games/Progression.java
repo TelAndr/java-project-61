@@ -19,30 +19,32 @@ public class Progression {
     }
     public static String[][] initData() {
         int randomNumFromArr;
+        int sizeArrAtt = Engine.countAttempt;
         int minValue = 1;
         int maxValue = 100;
         int randomValueFirst = Utils.getRandomInt(minValue, maxValue);
-        int[] arrRandomValueFirst = new int[Engine.countAttempt];
+        int[] arrRandomValueFirst = new int[sizeArrAtt];
         int minValueDiff = 1;
         int maxValueDiff = 10;
         int randomValueDiff = Utils.getRandomInt(minValueDiff, maxValueDiff);
-        int[] arrRandomValueDiff = new int[Engine.countAttempt];
+        int[] arrRandomValueDiff = new int[sizeArrAtt];
         int minCountNum = 5;
         int maxCountNum = 20;
         int randomCountNum = Utils.getRandomInt(minCountNum, maxCountNum);
-        int[] arrRandomCountNum = new int[Engine.countAttempt];
-        String[][] outPrepareDataArray = new String[Engine.countAttempt][2];
-        int[] arrRandomNumFromArr = new int[Engine.countAttempt];
+        int[] arrRandomCountNum = new int[sizeArrAtt];
+        String[][] outPrepareDataArray = new String[sizeArrAtt][2];
+        int[] arrRandomNumFromArr = new int[sizeArrAtt];
 
         String strAskArifmProgr = new String();
-        String[] arrStrAskArifmprogr = new String[Engine.countAttempt];
+        String[] arrStrAskArifmprogr = new String[sizeArrAtt];
 
-        for (int i = 0; i < Engine.countAttempt; i++) {
+        for (int i = 0; i < sizeArrAtt; i++) {
             arrRandomValueFirst[i] = Utils.getRandomInt(minValue, maxValue);
             arrRandomValueDiff[i] = Utils.getRandomInt(minValueDiff, maxValueDiff);
             arrRandomCountNum[i] = Utils.getRandomInt(minCountNum, maxCountNum);
             String[] arrArifmProgr = new String[arrRandomCountNum[i]];
-            arrArifmProgr = generateArrayArifmProgress(arrRandomCountNum[i], arrRandomValueFirst[i], arrRandomValueDiff[i]);
+            arrArifmProgr = generateArrayArifmProgress(arrRandomCountNum[i], arrRandomValueFirst[i],
+                    arrRandomValueDiff[i]);
             int minIndValRepl = 1;
             int maxIndValRepl = arrRandomCountNum[i] - 1;
             int randIndValRepl = Utils.getRandomInt(minIndValRepl, maxIndValRepl);
@@ -53,7 +55,7 @@ public class Progression {
             arrStrAskArifmprogr[i] = strAskArifmProgr;
         }
 
-        for (int i = 0; i < Engine.countAttempt; i++) {
+        for (int i = 0; i < sizeArrAtt; i++) {
             outPrepareDataArray[i][0] = arrStrAskArifmprogr[i];
             outPrepareDataArray[i][1] = String.valueOf(arrRandomNumFromArr[i]);
         }
