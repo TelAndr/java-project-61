@@ -22,7 +22,8 @@ public class Calculate {
         return resultMathOperation;
     }
     public static void run() {
-        String[][] outResultDataArray = new String[Engine.countAttempt][3];
+        int countOperand = 3;
+        String[][] outResultDataArray = new String[Engine.countAttempt][countOperand];
         String[][] outResultAttemptAskAnswer = new String[Engine.countAttempt][2];
         outResultDataArray = initData();
         //String strRuleGame = "What is the result of the expression?\nQuestion: ";
@@ -39,12 +40,13 @@ public class Calculate {
         Engine.prepareCalcNumValUserResponce(outResultAttemptAskAnswer, strRuleGame);
     }
     public static String[][] initData() {
+        int countOperand = 3;
         int minValue = 1;
         int maxValue = 100;
         int minIndVal = 0;
         int maxIndVal = 2;
         char[] operators = {'+', '-', '*'};
-        String[][] outDataToTransfer = new String[Engine.countAttempt][3];
+        String[][] outDataToTransfer = new String[Engine.countAttempt][countOperand];
         int[] arrRandomValueFirstAttempt = new int[Engine.countAttempt];
         int[] arrRandomValueSecondAttempt = new int[Engine.countAttempt];
         int[] arrIndAttempt = new int[Engine.countAttempt];
