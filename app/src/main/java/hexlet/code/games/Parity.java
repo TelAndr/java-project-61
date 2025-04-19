@@ -23,10 +23,12 @@ public class Parity {
         Engine.prepareCalcNumValUserResponce(outResultAttemptAskAnswer, strRuleGame);
     }
     public static String[] initData() {
+        int minValue = 1;
+        int maxValue = 100;
         String[] outDataToTransfer = new String[Engine.countAttempt];
         int[] randomValueAttempt = new int[Engine.countAttempt];
         for (int iAtt = 0; iAtt < Engine.countAttempt; ++iAtt) {
-            randomValueAttempt[iAtt] = Utils.getRandomInt(1, 100);
+            randomValueAttempt[iAtt] = Utils.getRandomInt(minValue, maxValue);
         }
         //int randomValueFirstAttempt = Utils.getRandomInt(1, 100);
         //int randomValueSecondAttempt = Utils.getRandomInt(1, 100);
