@@ -5,10 +5,10 @@ import hexlet.code.Utils;
 
 public class Progression {
     //private static int randomNumFromArr;
-    private static int[] arrRandomNumFromArr = new int[Engine.countAttempt];
-    public static int getArrRandomNumFromArr(int ind) {
-        return arrRandomNumFromArr[ind];
-    }
+    //private static int[] arrRandomNumFromArr = new int[Engine.countAttempt];
+    //public static int getArrRandomNumFromArr(int ind) {
+    //    return arrRandomNumFromArr[ind];
+    //}
     public static String[] generateArrayArifmProgress(int randomCountNum,
                                                    int randomValueFirst, int randomValueDiff) {
         String[] arrArifmProgr = new String[randomCountNum];
