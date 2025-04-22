@@ -31,8 +31,8 @@ public class GCD {
     }
     public static String[][] initData() {
         String[][] outPrepareDataArray = new String[Engine.countAttempt][2];
-        int minValue = 1;
-        int maxValue = 100;
+        final int minValue = 1;
+        final int maxValue = 100;
         for (int i = 0; i < Engine.countAttempt; i++) {
             for (int j = 0; j < 2; j++) {
                 outPrepareDataArray[i][j] = String.valueOf(Utils.getRandomInt(minValue, maxValue));
