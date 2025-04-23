@@ -14,15 +14,15 @@ public class GCD {
         return firstNum;
     }
     public static void run() {
-        String[][] outResultDataArray = new String[Engine.countAttempt][2];
-        String[][] outResultAttemptAskAnswer = new String[Engine.countAttempt][2];
+        String[][] outResultDataArray = new String[Engine.getCountAttempt()][2];
+        String[][] outResultAttemptAskAnswer = new String[Engine.getCountAttempt()][2];
         outResultDataArray = initData();
         String strRuleGame = "Find the greatest common divisor of given numbers.";
         //String strRuleGame = "Find the greatest common divisor of given numbers.\nQuestion: ";
-        for (int i = 0; i < Engine.countAttempt; i++) {
+        for (int i = 0; i < Engine.getCountAttempt(); i++) {
             outResultAttemptAskAnswer[i][0] = outResultDataArray[i][0] + " " + outResultDataArray[i][1];
         }
-        for (int i = 0; i < Engine.countAttempt; i++) {
+        for (int i = 0; i < Engine.getCountAttempt(); i++) {
             outResultAttemptAskAnswer[i][1] = String.valueOf(
                     GCD.gcd(Integer.parseInt(outResultDataArray[i][0]), Integer.parseInt(outResultDataArray[i][1]))
             );
@@ -30,10 +30,10 @@ public class GCD {
         Engine.prepareCalcNumValUserResponce(outResultAttemptAskAnswer, strRuleGame);
     }
     public static String[][] initData() {
-        String[][] outPrepareDataArray = new String[Engine.countAttempt][2];
+        String[][] outPrepareDataArray = new String[Engine.getCountAttempt()][2];
         final int minValue = 1;
         final int maxValue = 100;
-        for (int i = 0; i < Engine.countAttempt; i++) {
+        for (int i = 0; i < Engine.getCountAttempt(); i++) {
             for (int j = 0; j < 2; j++) {
                 outPrepareDataArray[i][j] = String.valueOf(Utils.getRandomInt(minValue, maxValue));
             }

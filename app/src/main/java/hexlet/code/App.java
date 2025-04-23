@@ -9,7 +9,13 @@ import java.util.Scanner;
 
 public class App {
     public static final Scanner USER_INPUT = new Scanner(System.in);
-    public static String username;
+    private static String username;
+    public static String getUserName() {
+        return username;
+    }
+    public static void setUserName(String inpUserName) {
+        username = inpUserName;
+    }
     public static void main(String[] args) {
         //if (username != null) {
         //    System.out.println("Let's try again, " + username + "!");

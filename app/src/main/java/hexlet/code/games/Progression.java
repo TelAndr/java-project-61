@@ -19,17 +19,17 @@ public class Progression {
     }
     public static String[][] initData() {
         int randomNumFromArr;
-        int sizeArrAtt = Engine.countAttempt;
-        int minValue = 1;
-        int maxValue = 100;
+        int sizeArrAtt = Engine.getCountAttempt();
+        final int minValue = 1;
+        final int maxValue = 100;
         int randomValueFirst = Utils.getRandomInt(minValue, maxValue);
         int[] arrRandomValueFirst = new int[sizeArrAtt];
-        int minValueDiff = 1;
-        int maxValueDiff = 10;
+        final int minValueDiff = 1;
+        final int maxValueDiff = 10;
         int randomValueDiff = Utils.getRandomInt(minValueDiff, maxValueDiff);
         int[] arrRandomValueDiff = new int[sizeArrAtt];
-        int minCountNum = 5;
-        int maxCountNum = 20;
+        final int minCountNum = 5;
+        final int maxCountNum = 20;
         int randomCountNum = Utils.getRandomInt(minCountNum, maxCountNum);
         int[] arrRandomCountNum = new int[sizeArrAtt];
         String[][] outPrepareDataArray = new String[sizeArrAtt][2];
@@ -62,15 +62,15 @@ public class Progression {
         return outPrepareDataArray;
     }
     public static void run() {
-        String[][] outResultDataArray = new String[Engine.countAttempt][2];
-        String[][] outResultAttemptAskAnswer = new String[Engine.countAttempt][2];
+        String[][] outResultDataArray = new String[Engine.getCountAttempt()][2];
+        String[][] outResultAttemptAskAnswer = new String[Engine.getCountAttempt()][2];
         outResultDataArray = initData();
         String strRuleGame = "What number is missing in the progression?";
         //String strRuleGame = "What number is missing in the progression?\nQuestion: ";
-        for (int i = 0; i < Engine.countAttempt; i++) {
+        for (int i = 0; i < Engine.getCountAttempt(); i++) {
             outResultAttemptAskAnswer[i][0] = outResultDataArray[i][0];
         }
-        for (int i = 0; i < Engine.countAttempt; i++) {
+        for (int i = 0; i < Engine.getCountAttempt(); i++) {
             outResultAttemptAskAnswer[i][1] = outResultDataArray[i][1]; //String.valueOf(getArrRandomNumFromArr(i));
         }
         Engine.prepareCalcNumValUserResponce(outResultAttemptAskAnswer, strRuleGame);
