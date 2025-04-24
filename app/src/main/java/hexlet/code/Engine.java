@@ -1,9 +1,9 @@
 package hexlet.code;
 
 public class Engine {
-    private static final int countAttempt = 3;
+    private static final int CountAttempt = 3;
     public static int getCountAttempt() {
-        return countAttempt;
+        return CountAttempt;
     }
     public static void printUserName() {
         System.out.println("May I have your name?");
