@@ -20,6 +20,13 @@ public class App {
         //if (username != null) {
         //    System.out.println("Let's try again, " + username + "!");
         //}
+            final int EXIT = 0;
+            final int GREET = 1;
+            final int EVEN = 2;
+            final int CALC = 3;
+            final int GCDCONST = 4;
+            final int PROGRESSION = 5;
+            final int PRIME = 6;
         System.out.println(
                 "Please enter the game number and press Enter.\n"
                         + "1 - Greet\n" + "2 - Even\n" + "3 - Calc\n" + "4 - GCD\n"
@@ -33,24 +40,24 @@ public class App {
         //System.out.println("Hello, " + App.username + "!");
         Engine.printUserName();
         switch (numGame) {
-            case 0:
+            case EXIT :
                 break;
-            case 1:
+            case GREET:
                 //Cli.askUser();
                 break;
-            case 2:
+            case EVEN:
                 Parity.run();
                 break;
-            case 3:
+            case CALC:
                 Calculate.run();
                 break;
-            case 4:
+            case GCDCONST:
                 GCD.run();
                 break;
-            case 5:
+            case PROGRESSION:
                 Progression.run();
                 break;
-            case 6:
+            case PRIME:
                 Prime.run();
                 break;
             default:
