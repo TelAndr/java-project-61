@@ -20,13 +20,13 @@ public class App {
         //if (username != null) {
         //    System.out.println("Let's try again, " + username + "!");
         //}
-            final int exit = 0;
-            final int greet = 1;
-            final int even = 2;
-            final int calc = 3;
-            final int gcd = 4;
-            final int progression = 5;
-            final int prime = 6;
+        final int exit = 0;
+        final int greet = 1;
+        final int even = 2;
+        final int calc = 3;
+        final int gcd = 4;
+        final int progression = 5;
+        final int prime = 6;
         System.out.println(
                 "Please enter the game number and press Enter.\n"
                         + "1 - Greet\n" + "2 - Even\n" + "3 - Calc\n" + "4 - GCD\n"
